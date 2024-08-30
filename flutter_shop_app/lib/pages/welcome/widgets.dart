@@ -14,7 +14,6 @@ Widget appOnboardingPage(
   return Column(
     //first page
     children: [
-      const SizedBox(height: 60),
       Image.asset(
         imagePath,
         fit: BoxFit.fitWidth,
@@ -43,13 +42,13 @@ Widget _nextButton(int index, PageController controller) {
           curve: Curves.linear,
         );
       }
-      if (index == 3) {
-        controller.animateToPage(
-          0,
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.linear,
-        );
-      }
+      // if (index == 3) {
+      //   controller.animateToPage(
+      //     0,
+      //     duration: const Duration(milliseconds: 300),
+      //     curve: Curves.linear,
+      //   );
+      // }
     },
     child: Container(
       width: 325,
@@ -62,7 +61,7 @@ Widget _nextButton(int index, PageController controller) {
       decoration: appBoxShadow(),
       child: Center(
         child: text16Normal(
-          text: "Next",
+          text: index < 3 ? "Next" : "Get started",
           color: Colors.white,
         ),
       ),
