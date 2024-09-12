@@ -1,6 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_shop_app/pages/notifier/welcome_notifier.dart';
+import 'package:flutter_shop_app/pages/welcome/notifier/welcome_notifier.dart';
 import 'package:flutter_shop_app/pages/welcome/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -38,6 +38,7 @@ class Welcome extends ConsumerWidget {
                       subTitle:
                           "Forget about of paper all knowleadge in one learning",
                       index: 1,
+                      context: context,
                     ),
                     //second page
                     appOnboardingPage(
@@ -47,6 +48,7 @@ class Welcome extends ConsumerWidget {
                       subTitle:
                           "Always keep in touch with your tutor and friends. Let's get connected.",
                       index: 2,
+                      context: context,
                     ),
                     appOnboardingPage(
                       controller,
@@ -55,6 +57,7 @@ class Welcome extends ConsumerWidget {
                       subTitle:
                           "Anywhere, anytime. The time is at your destination. So study wherever you can.",
                       index: 3,
+                      context: context,
                     ),
                   ],
                 ),

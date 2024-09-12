@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop_app/common/widgets/app_shadow.dart';
-
-import '../../common/utils/app_colors.dart';
+import 'package:flutter_shop_app/pages/sign_in/sign_in.dart';
 import '../../common/widgets/text_widgets.dart';
 
 Widget appOnboardingPage(
@@ -10,6 +9,7 @@ Widget appOnboardingPage(
   String title = "",
   String subTitle = "",
   int index = 0,
+  required BuildContext context,
 }) {
   return Column(
     //first page
@@ -27,12 +27,12 @@ Widget appOnboardingPage(
         padding: const EdgeInsets.only(right: 30, left: 30),
         child: text16Normal(text: subTitle),
       ),
-      _nextButton(index, controller),
+      _nextButton(index, controller, context),
     ],
   );
 }
 
-Widget _nextButton(int index, PageController controller) {
+Widget _nextButton(int index, PageController controller, BuildContext context) {
   return GestureDetector(
     onTap: () {
       if (index < 3) {
@@ -41,14 +41,12 @@ Widget _nextButton(int index, PageController controller) {
           duration: const Duration(milliseconds: 300),
           curve: Curves.linear,
         );
+      } else {
+        Navigator.pushNamed(
+          context,
+          "/signIn",
+        );
       }
-      // if (index == 3) {
-      //   controller.animateToPage(
-      //     0,
-      //     duration: const Duration(milliseconds: 300),
-      //     curve: Curves.linear,
-      //   );
-      // }
     },
     child: Container(
       width: 325,
