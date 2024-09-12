@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../utils/app_colors.dart';
 
@@ -42,6 +43,22 @@ Widget text14Normal(
       color: color,
       fontSize: 16,
       fontWeight: FontWeight.normal,
+    ),
+  );
+}
+
+Widget textUnderline({String text = "Your text"}) {
+  return GestureDetector(
+    onTap: () {},
+    child: Text(
+      text,
+      style: TextStyle(
+        fontWeight: FontWeight.normal,
+        fontSize: 12.sp,
+        decoration: TextDecoration.underline,
+        decorationColor: AppColors.primaryText,
+        color: AppColors.primaryText,
+      ),
     ),
   );
 }

@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(275, 812),
+      designSize: const Size(375, 812),
       builder: (context, child) => MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
