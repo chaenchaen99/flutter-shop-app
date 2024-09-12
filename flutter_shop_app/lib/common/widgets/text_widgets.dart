@@ -31,3 +31,17 @@ Widget text16Normal(
     ),
   );
 }
+
+Widget text14Normal(
+    {String text = "", Color color = AppColors.primaryThreeElementText}) {
+  return Text(
+    text,
+    textAlign: TextAlign.center,
+    style: TextStyle(
+      fontFamily: 'MontserratMedium',
+      color: color,
+      fontSize: 16,
+      fontWeight: FontWeight.normal,
+    ),
+  );
+}
