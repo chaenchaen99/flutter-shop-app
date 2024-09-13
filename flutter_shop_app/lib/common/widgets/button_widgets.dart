@@ -11,13 +11,15 @@ Widget appButton({
   double height = 50,
   bool isLogin = true,
   BuildContext? context,
+  void Function()? func,
 }) {
   return GestureDetector(
     onTap: () {
-      Navigator.push(
-        context!,
-        MaterialPageRoute(builder: (context) => const SignUp()),
-      );
+      if (func == null) {
+        print("This handler is null");
+      } else {
+        func;
+      }
     },
     child: Container(
       width: width.w,

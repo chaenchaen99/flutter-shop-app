@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_shop_app/common/widgets/text_widgets.dart';
 import 'package:flutter_shop_app/pages/sign_in/widgets/sign_in_widgets.dart';
+import 'package:flutter_shop_app/pages/sign_up/sign_up.dart';
 import '../../common/widgets/app_bar.dart';
 import '../../common/widgets/app_textfields.dart';
 import '../../common/widgets/button_widgets.dart';
@@ -59,10 +60,10 @@ class SignIn extends StatelessWidget {
                   SizedBox(height: 20.h),
                   Center(
                     child: appButton(
-                      buttonName: "Register",
-                      isLogin: false,
-                      context: context,
-                    ),
+                        buttonName: "Register",
+                        isLogin: false,
+                        context: context,
+                        func: () => Navigator.pushNamed(context, "/signUp")),
                   ),
                 ],
               ),
