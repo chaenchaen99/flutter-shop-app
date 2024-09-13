@@ -11,23 +11,6 @@ import '../../../common/widgets/image_widgets.dart';
   put child in the given space.
  */
 
-AppBar buildAppBar() {
-  return AppBar(
-    backgroundColor: Colors.white,
-    title: text16Normal(
-      text: "Login",
-      color: AppColors.primaryText,
-    ),
-    bottom: PreferredSize(
-      preferredSize: const Size.fromHeight(10),
-      child: Container(
-        color: Colors.grey,
-        height: 1,
-      ),
-    ),
-  );
-}
-
 Widget thirdPartyLogin() {
   return Container(
     margin: EdgeInsets.only(
@@ -55,54 +38,6 @@ Widget _loginButton(String imagePath) {
       child: Image.asset(
         imagePath,
       ),
-    ),
-  );
-}
-
-Widget appTextField(
-    {String text = "",
-    String iconName = "",
-    String hintText = "Type your email"}) {
-  return Container(
-    padding: EdgeInsets.only(left: 25.w, right: 25.w),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        text14Normal(text: text),
-        const SizedBox(height: 5),
-        Container(
-          width: 325.w,
-          height: 50.h,
-          decoration: appBoxDecorationTextField(),
-          //row contains icon and textfield
-          child: Row(
-            children: [
-              Container(
-                margin: EdgeInsets.only(left: 8.w),
-                child: appImage(imagePath: iconName),
-              ),
-              SizedBox(
-                width: 190.w,
-                height: 50.h,
-                child: TextField(
-                  keyboardType: TextInputType.multiline,
-                  decoration: InputDecoration(
-                    hintText: hintText,
-                    hintStyle: TextStyle(
-                      color: Colors.grey[400],
-                    ),
-                    border:
-                        const OutlineInputBorder(borderSide: BorderSide.none),
-                  ),
-                  maxLines: 1,
-                  autocorrect: false,
-                  obscureText: true,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
     ),
   );
 }

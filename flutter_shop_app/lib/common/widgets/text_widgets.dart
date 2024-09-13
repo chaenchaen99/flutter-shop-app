@@ -37,7 +37,7 @@ Widget text14Normal(
     {String text = "", Color color = AppColors.primaryThreeElementText}) {
   return Text(
     text,
-    textAlign: TextAlign.center,
+    textAlign: TextAlign.start,
     style: TextStyle(
       fontFamily: 'MontserratMedium',
       color: color,
