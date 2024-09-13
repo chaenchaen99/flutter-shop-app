@@ -5,10 +5,13 @@ import 'app_shadow.dart';
 import 'image_widgets.dart';
 import 'text_widgets.dart';
 
-Widget appTextField(
-    {String text = "",
-    String iconName = "",
-    String hintText = "Type your email"}) {
+Widget appTextField({
+  String text = "",
+  String iconName = "",
+  String hintText = "Type your email",
+  bool obscureText = false,
+  void Function(String value)? func,
+}) {
   return Container(
     padding: EdgeInsets.only(left: 25.w, right: 25.w),
     child: Column(
@@ -40,9 +43,10 @@ Widget appTextField(
                     border:
                         const OutlineInputBorder(borderSide: BorderSide.none),
                   ),
+                  onChanged: (value) => func!(value),
                   maxLines: 1,
                   autocorrect: false,
-                  obscureText: true,
+                  obscureText: obscureText,
                 ),
               ),
             ],
