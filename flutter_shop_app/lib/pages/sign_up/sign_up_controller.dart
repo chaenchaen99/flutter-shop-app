@@ -41,6 +41,11 @@ class SignUpController {
       return;
     }
 
+    if (state.password.length < 6 || state.rePassword.length < 6) {
+      toastInfo("Your password should be at least 6 characters");
+      return;
+    }
+
     if ((state.password != state.rePassword) || password != rePassword) {
       toastInfo("Your password did not match");
       return;
