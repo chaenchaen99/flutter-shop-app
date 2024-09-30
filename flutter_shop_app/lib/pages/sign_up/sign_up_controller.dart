@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_shop_app/common/utils/global_loader/global_loader.dart';
 import 'package:flutter_shop_app/common/widgets/popup_messages.dart';
 import 'package:flutter_shop_app/pages/sign_up/notifier/register_notifier.dart';
 
@@ -45,26 +46,39 @@ class SignUpController {
       return;
     }
 
-    var context = Navigator.of(ref.context);
+    ref.read(appLoaderProvider.notifier).setLoaderValue(true);
 
-    try {
-      final credential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
+    Future.delayed(
+        const Duration(
+          seconds: 3,
+        ), () async {
+      var context = Navigator.of(ref.context);
+      try {
+        final credential = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(email: email, password: password);
 
-      if (kDebugMode) {
-        print(credential);
+        if (kDebugMode) {
+          print(credential);
+        }
+
+        if (credential.user != null) {
+          await credential.user?.sendEmailVerification();
+          await credential.user?.updateDisplayName(name);
+
+          //get server photo url
+          //set user photo url
+          toastInfo(
+              "Asn email has been to verify your account. Please open that email and confirm this.");
+          context.pop();
+        }
+      } catch (e) {
+        if (kDebugMode) {
+          print(e.toString());
+        }
       }
 
-      if (credential.user != null) {
-        await credential.user?.sendEmailVerification();
-        await credential.user?.updateDisplayName(name);
-
-        //get server photo url
-        //set user photo url
-        toastInfo(
-            "Asn email has been to verify your account. Please open that email and confirm this.");
-        context.pop();
-      }
-    } catch (e) {}
+      //show the register page
+      ref.watch(appLoaderProvider.notifier).setLoaderValue(false);
+    });
   }
 }
