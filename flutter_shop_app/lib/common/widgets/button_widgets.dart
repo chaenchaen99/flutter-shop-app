@@ -18,7 +18,7 @@ Widget appButton({
       if (func == null) {
         print("This handler is null");
       } else {
-        func;
+        func();
       }
     },
     child: Container(

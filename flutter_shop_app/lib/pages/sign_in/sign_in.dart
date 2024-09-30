@@ -60,7 +60,7 @@ class SignIn extends StatelessWidget {
                   SizedBox(height: 20.h),
                   Center(
                     child: appButton(
-                        buttonName: "Register",
+                        buttonName: "Sign Up",
                         isLogin: false,
                         context: context,
                         func: () => Navigator.pushNamed(context, "/signUp")),
