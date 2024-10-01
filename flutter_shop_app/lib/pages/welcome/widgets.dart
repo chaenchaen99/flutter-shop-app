@@ -52,7 +52,7 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
       width: 325,
       height: 50,
       margin: const EdgeInsets.only(
-        top: 100,
+        top: 50,
         left: 25,
         right: 25,
       ),
