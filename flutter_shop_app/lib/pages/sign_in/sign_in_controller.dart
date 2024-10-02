@@ -1,9 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_shop_app/common/entities/user.dart';
+import 'package:flutter_shop_app/common/utils/constants.dart';
 import 'package:flutter_shop_app/common/utils/global_loader/global_loader.dart';
+import 'package:flutter_shop_app/global.dart';
 import 'package:flutter_shop_app/pages/sign_in/notifier/sign_in_notifier.dart';
 
 import '../../common/widgets/popup_messages.dart';
@@ -66,15 +69,14 @@ class SignInController {
         loginRequestEntity.open_id = id;
         loginRequestEntity.type = 1;
         asyncPostAllData(loginRequestEntity);
-        print("user logged in");
       } else {
         toastInfo("login error");
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         toastInfo("User not found");
-      } else if (e.code == 'wrong-password') {
-        toastInfo("Your password is wrong");
+      } else if (e.code == 'invalid-credential') {
+        toastInfo("Your password or email is wrong");
       }
       print("error reaseon${e.code}");
     } catch (e) {
@@ -87,7 +89,26 @@ class SignInController {
   }
 
   void asyncPostAllData(LoginRequestEntity loginRequestEntity) {
-    ref.read(appLoaderProvider.notifier).setLoaderValue(true);
-    ref.read(appLoaderProvider.notifier).setLoaderValue(false);
+    //we need to talk to server
+
+    //have local storage
+    try {
+      var navigator = Navigator.of(ref.context);
+      //try to remember user info
+      Global.storageService
+          .setString(AppConstants.STORAGE_USER_PROFILE_KEY, "123");
+      Global.storageService
+          .setString(AppConstants.STORAGE_USER_TOKEN_KEY, "123456");
+
+      navigator.push(MaterialPageRoute(
+          builder: (BuildContext context) => Scaffold(
+                appBar: AppBar(),
+                body: Container(),
+              )));
+    } catch (e) {
+      print(e.toString());
+    }
+
+    //redirect to new page
   }
 }
