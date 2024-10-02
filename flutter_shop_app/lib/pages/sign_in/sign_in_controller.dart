@@ -1,4 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_shop_app/common/entities/user.dart';
 import 'package:flutter_shop_app/common/utils/global_loader/global_loader.dart';
@@ -11,11 +13,17 @@ class SignInController {
 
   SignInController(this.ref);
 
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   Future<void> handleSignIn() async {
     var state = ref.read(signInNotifierProvider);
 
     String email = state.email;
     String password = state.password;
+
+    emailController.text = email;
+    passwordController.text = password;
 
     if (state.email.isEmpty || email.isEmpty) {
       toastInfo("Your email is empty");
@@ -33,7 +41,6 @@ class SignInController {
     }
 
     ref.read(appLoaderProvider.notifier).setLoaderValue(true);
-    print('0');
     try {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
@@ -46,7 +53,6 @@ class SignInController {
         toastInfo("You must verify your email address first!");
       }
       var user = credential.user;
-      print('1');
       if (user != null) {
         String? displayName = user.displayName;
         String? email = user.email;
@@ -60,16 +66,24 @@ class SignInController {
         loginRequestEntity.open_id = id;
         loginRequestEntity.type = 1;
         asyncPostAllData(loginRequestEntity);
-        print('2');
         print("user logged in");
       } else {
         toastInfo("login error");
       }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        toastInfo("User not found");
+      } else if (e.code == 'wrong-password') {
+        toastInfo("Your password is wrong");
+      }
+      print("error reaseon${e.code}");
     } catch (e) {
-      print('5');
+      if (kDebugMode) {
+        print("error reason$e");
+      }
     }
+
     ref.read(appLoaderProvider.notifier).setLoaderValue(false);
-    print('4');
   }
 
   void asyncPostAllData(LoginRequestEntity loginRequestEntity) {

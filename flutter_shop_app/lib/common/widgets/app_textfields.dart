@@ -6,6 +6,7 @@ import 'image_widgets.dart';
 import 'text_widgets.dart';
 
 Widget appTextField({
+  TextEditingController? controller,
   String text = "",
   String iconName = "",
   String hintText = "Type your email",
@@ -34,6 +35,7 @@ Widget appTextField({
                 width: 190.w,
                 height: 50.h,
                 child: TextField(
+                  controller: controller,
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
                     hintText: hintText,
