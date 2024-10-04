@@ -7,6 +7,7 @@ import 'package:flutter_shop_app/common/entities/user.dart';
 import 'package:flutter_shop_app/common/utils/constants.dart';
 import 'package:flutter_shop_app/common/utils/global_loader/global_loader.dart';
 import 'package:flutter_shop_app/global.dart';
+import 'package:flutter_shop_app/pages/application/application.dart';
 import 'package:flutter_shop_app/pages/sign_in/notifier/sign_in_notifier.dart';
 
 import '../../common/widgets/popup_messages.dart';
@@ -100,11 +101,7 @@ class SignInController {
       Global.storageService
           .setString(AppConstants.STORAGE_USER_TOKEN_KEY, "123456");
 
-      navigator.push(MaterialPageRoute(
-          builder: (BuildContext context) => Scaffold(
-                appBar: AppBar(),
-                body: Container(),
-              )));
+      navigator.pushNamedAndRemoveUntil("/application", (route) => false);
     } catch (e) {
       print(e.toString());
     }
