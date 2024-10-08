@@ -11,6 +11,9 @@ class AppTheme {
       backgroundColor: Colors.white,
       selectedItemColor: AppColors.primaryElement,
       unselectedItemColor: Colors.grey,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      elevation: 0,
     ),
     appBarTheme: const AppBarTheme(
         elevation: 0,
