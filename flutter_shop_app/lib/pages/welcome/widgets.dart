@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shop_app/common/routes/app_routes_name.dart';
 import 'package:flutter_shop_app/common/utils/constants.dart';
 import 'package:flutter_shop_app/common/widgets/app_shadow.dart';
-import 'package:flutter_shop_app/pages/sign_in/sign_in.dart';
 import '../../common/widgets/text_widgets.dart';
 import '../../global.dart';
 

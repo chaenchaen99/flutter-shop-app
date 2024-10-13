@@ -1,9 +1,9 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_shop_app/common/utils/image_res.dart';
 import 'package:flutter_shop_app/pages/welcome/notifier/welcome_notifier.dart';
 import 'package:flutter_shop_app/pages/welcome/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 class Welcome extends ConsumerWidget {
   Welcome({super.key});
@@ -33,7 +33,7 @@ class Welcome extends ConsumerWidget {
                     //firse page
                     appOnboardingPage(
                       controller,
-                      imagePath: "assets/images/reading.png",
+                      imagePath: ImageRes.reading,
                       title: "First See Learning",
                       subTitle:
                           "Forget about of paper all knowleadge in one learning",
@@ -43,7 +43,7 @@ class Welcome extends ConsumerWidget {
                     //second page
                     appOnboardingPage(
                       controller,
-                      imagePath: "assets/images/man.png",
+                      imagePath: ImageRes.man,
                       title: "Connect With Everyone",
                       subTitle:
                           "Always keep in touch with your tutor and friends. Let's get connected.",
@@ -52,7 +52,7 @@ class Welcome extends ConsumerWidget {
                     ),
                     appOnboardingPage(
                       controller,
-                      imagePath: "assets/images/boy.png",
+                      imagePath: ImageRes.boy,
                       title: "Always Facinated Learning",
                       subTitle:
                           "Anywhere, anytime. The time is at your destination. So study wherever you can.",

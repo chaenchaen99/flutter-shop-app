@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_shop_app/common/utils/app_colors.dart';
 import 'package:flutter_shop_app/common/utils/global_loader/global_loader.dart';
+import 'package:flutter_shop_app/common/utils/image_res.dart';
 import 'package:flutter_shop_app/common/widgets/text_widgets.dart';
 import 'package:flutter_shop_app/pages/sign_in/notifier/sign_in_notifier.dart';
 import 'package:flutter_shop_app/pages/sign_in/sign_in_controller.dart';
@@ -29,7 +30,6 @@ class _SignInState extends ConsumerState<SignIn> {
 
   @override
   Widget build(BuildContext context) {
-    final signInProvider = ref.watch(signInNotifierProvider);
     final loader = ref.watch(appLoaderProvider);
 
     return Container(
@@ -56,7 +56,7 @@ class _SignInState extends ConsumerState<SignIn> {
                       appTextField(
                         controller: _controller.emailController,
                         text: "Email",
-                        iconName: "assets/icons/user.png",
+                        iconName: ImageRes.user,
                         hintText: "Enter your email address",
                         func: (value) => ref
                             .read(signInNotifierProvider.notifier)
@@ -67,7 +67,7 @@ class _SignInState extends ConsumerState<SignIn> {
                       appTextField(
                         controller: _controller.passwordController,
                         text: "Password",
-                        iconName: "assets/icons/lock.png",
+                        iconName: ImageRes.lock,
                         hintText: "Enter your password address",
                         func: (value) => ref
                             .read(signInNotifierProvider.notifier)
