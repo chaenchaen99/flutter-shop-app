@@ -2,10 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shop_app/common/routes/app_routes_name.dart';
 import 'package:flutter_shop_app/global.dart';
-import 'package:flutter_shop_app/pages/application/application.dart';
-import 'package:flutter_shop_app/pages/sign_in/sign_in.dart';
-import 'package:flutter_shop_app/pages/sign_up/sign_up.dart';
-import 'package:flutter_shop_app/pages/welcome/welcome.dart';
+import 'package:flutter_shop_app/pages/application/view/application.dart';
+import 'package:flutter_shop_app/pages/sign_in/view/sign_in.dart';
+import 'package:flutter_shop_app/pages/sign_up/view/sign_up.dart';
+import 'package:flutter_shop_app/pages/welcome/view/welcome.dart';
 
 class AppPages {
   static List<RouteEntity> routes() {
