@@ -15,4 +15,9 @@ class ImageRes {
   static const String play = '$_iconBase/play-circle.png';
   static const String message = '$_iconBase/message-circle.png';
   static const String profile = '$_iconBase/person2.png';
+  static const String ic_search = '$_iconBase/search.png';
+  static const String searchButton = '$_iconBase/options.png';
+  static const String banner1 = '$_iconBase/Art.png';
+  static const String banner2 = '$_iconBase/Image(1).png';
+  static const String banner3 = '$_iconBase/Image(2).png';
 }

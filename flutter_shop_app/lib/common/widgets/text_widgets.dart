@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../utils/app_colors.dart';
 
-Widget text24Normal({
-  String text = "",
-  Color color = AppColors.primaryText,
-}) {
+Widget text24Normal(
+    {String text = "",
+    Color color = AppColors.primaryText,
+    FontWeight fontWeight = FontWeight.normal}) {
   return Text(
     text,
     textAlign: TextAlign.center,
@@ -14,7 +14,7 @@ Widget text24Normal({
       color: color,
       fontFamily: 'MontserratSemibold',
       fontSize: 24,
-      fontWeight: FontWeight.w700,
+      fontWeight: fontWeight,
     ),
   );
 }

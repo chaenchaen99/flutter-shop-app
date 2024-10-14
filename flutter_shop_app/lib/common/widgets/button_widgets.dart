@@ -25,7 +25,7 @@ Widget appButton({
       height: height.h,
       decoration: appBoxShadow(
         color: isLogin ? AppColors.primaryElement : Colors.white,
-        border: Border.all(
+        boxBorder: Border.all(
           color: AppColors.primaryFourElementText,
         ),
       ),

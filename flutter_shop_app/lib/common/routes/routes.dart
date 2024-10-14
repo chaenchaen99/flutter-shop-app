@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shop_app/common/routes/app_routes_name.dart';
 import 'package:flutter_shop_app/global.dart';
 import 'package:flutter_shop_app/pages/application/view/application.dart';
+import 'package:flutter_shop_app/pages/home/view/home.dart';
 import 'package:flutter_shop_app/pages/sign_in/view/sign_in.dart';
 import 'package:flutter_shop_app/pages/sign_up/view/sign_up.dart';
 import 'package:flutter_shop_app/pages/welcome/view/welcome.dart';
@@ -14,6 +15,7 @@ class AppPages {
       RouteEntity(path: AppRoutesName.SIGN_IN, page: const SignIn()),
       RouteEntity(path: AppRoutesName.REGISTER, page: const SignUp()),
       RouteEntity(path: AppRoutesName.APPLICATION, page: const Application()),
+      RouteEntity(path: AppRoutesName.HOME, page: const Home()),
     ];
   }
 

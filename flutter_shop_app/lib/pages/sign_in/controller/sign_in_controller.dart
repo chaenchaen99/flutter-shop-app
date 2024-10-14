@@ -1,9 +1,11 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_shop_app/common/entities/user.dart';
+import 'package:flutter_shop_app/common/models/user.dart';
 import 'package:flutter_shop_app/common/utils/constants.dart';
 import 'package:flutter_shop_app/common/utils/global_loader/global_loader.dart';
 import 'package:flutter_shop_app/global.dart';
@@ -92,8 +94,13 @@ class SignInController {
 
   void asyncPostAllData(LoginRequestEntity loginRequestEntity) {
     try {
-      Global.storageService
-          .setString(AppConstants.STORAGE_USER_PROFILE_KEY, "123");
+      Global.storageService.setString(
+          AppConstants.STORAGE_USER_PROFILE_KEY,
+          jsonEncode({
+            'name': 'chaeyeon',
+            'email': 'dus1697@naver.com',
+            'age': '25',
+          }));
       Global.storageService
           .setString(AppConstants.STORAGE_USER_TOKEN_KEY, "123456");
 
