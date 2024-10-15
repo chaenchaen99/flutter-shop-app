@@ -56,9 +56,9 @@ class SignInController {
         toastInfo("User not found");
       }
 
-      if (!credential.user!.emailVerified) {
-        toastInfo("You must verify your email address first!");
-      }
+      // if (!credential.user!.emailVerified) {
+      //   toastInfo("You must verify your email address first!");
+      // }
       var user = credential.user;
       if (user != null) {
         String? displayName = user.displayName;
