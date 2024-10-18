@@ -31,8 +31,8 @@ class Welcome extends ConsumerWidget {
                   controller: controller,
                   children: [
                     //firse page
-                    appOnboardingPage(
-                      controller,
+                    AppOnBoardingPage(
+                      controller: controller,
                       imagePath: ImageRes.reading,
                       title: "First See Learning",
                       subTitle:
@@ -41,8 +41,8 @@ class Welcome extends ConsumerWidget {
                       context: context,
                     ),
                     //second page
-                    appOnboardingPage(
-                      controller,
+                    AppOnBoardingPage(
+                      controller: controller,
                       imagePath: ImageRes.man,
                       title: "Connect With Everyone",
                       subTitle:
@@ -50,8 +50,8 @@ class Welcome extends ConsumerWidget {
                       index: 2,
                       context: context,
                     ),
-                    appOnboardingPage(
-                      controller,
+                    AppOnBoardingPage(
+                      controller: controller,
                       imagePath: ImageRes.boy,
                       title: "Always Facinated Learning",
                       subTitle:

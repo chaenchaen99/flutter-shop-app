@@ -50,8 +50,8 @@ class _SignInState extends ConsumerState<SignIn> {
                         //top login buttons
                         thirdPartyLogin(),
                         //more login options message
-                        Center(
-                            child: text14Normal(
+                        const Center(
+                            child: Text14Normal(
                                 text: "Or use your email account to login")),
                         SizedBox(
                           height: 50.h,
@@ -85,7 +85,8 @@ class _SignInState extends ConsumerState<SignIn> {
                         //forgot text
                         Container(
                             margin: EdgeInsets.only(left: 25.w),
-                            child: textUnderline(text: "Forgot password?")),
+                            child:
+                                const TextUnderline(text: "Forgot password?")),
                         SizedBox(
                           height: 100.h,
                         ),
