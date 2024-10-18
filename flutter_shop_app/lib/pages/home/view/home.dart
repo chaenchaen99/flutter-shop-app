@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_shop_app/common/widgets/app_bar.dart';
@@ -26,7 +27,8 @@ class _HomeState extends ConsumerState<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(title: "Home"),
+      backgroundColor: Colors.white,
+      appBar: homeAppBar(title: "Home"),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 25.w),
         child: SingleChildScrollView(
@@ -34,12 +36,15 @@ class _HomeState extends ConsumerState<Home> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: 20.h),
               const HelloText(),
               const UserName(),
               SizedBox(height: 20.h),
               searchBar(),
               SizedBox(height: 20.h),
               HomeBanner(controller: _controller, ref: ref),
+              const HomeMenuBar(),
+              CourseItemGrid(),
             ],
           ),
         ),

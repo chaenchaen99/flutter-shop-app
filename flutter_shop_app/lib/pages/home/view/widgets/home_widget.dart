@@ -1,10 +1,15 @@
+import 'dart:ui';
+
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_shop_app/common/utils/app_colors.dart';
 import 'package:flutter_shop_app/common/utils/image_res.dart';
+import 'package:flutter_shop_app/common/widgets/app_shadow.dart';
+import 'package:flutter_shop_app/common/widgets/image_widgets.dart';
 import 'package:flutter_shop_app/pages/home/controller/home_controller.dart';
 
 import '../../../../common/widgets/text_widgets.dart';
@@ -15,12 +20,9 @@ class UserName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("my user name");
-    return Container(
-      child: Text24Normal(
-        text: Global.storageService.getUserProfile().name ?? '',
-        fontWeight: FontWeight.bold,
-      ),
+    return Text24Normal(
+      text: Global.storageService.getUserProfile().name ?? '',
+      fontWeight: FontWeight.bold,
     );
   }
 }
@@ -30,15 +32,36 @@ class HelloText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("hello text");
-    return Container(
-      child: const Text24Normal(
-        text: "Hello, ",
-        color: AppColors.primaryThreeElementText,
-        fontWeight: FontWeight.bold,
-      ),
+    return const Text24Normal(
+      text: "Hello, ",
+      color: AppColors.primaryThreeElementText,
+      fontWeight: FontWeight.bold,
     );
   }
+}
+
+AppBar homeAppBar({String title = ''}) {
+  return AppBar(
+    title: Container(
+      margin: EdgeInsets.only(
+        left: 7.w,
+        right: 7.w,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          appImage(
+            imagePath: ImageRes.menu,
+            width: 18.w,
+            height: 12.h,
+          ),
+          GestureDetector(
+            child: const AppBoxDecorationImage(),
+          ),
+        ],
+      ),
+    ),
+  );
 }
 
 class HomeBanner extends StatelessWidget {
@@ -98,4 +121,90 @@ Widget bannerContainer({String? imagePath}) {
       ),
     ),
   );
+}
+
+class HomeMenuBar extends StatelessWidget {
+  const HomeMenuBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        //see all courseItemGrid
+        Container(
+          margin: EdgeInsets.only(top: 15.h),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              const Text16Normal(
+                text: "Choice your courseItemGrid",
+                color: AppColors.primaryText,
+                fontWeight: FontWeight.bold,
+              ),
+              GestureDetector(
+                child: const Text14Normal(
+                  text: "See All",
+                  color: AppColors.primaryThreeElementText,
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 20.h),
+        Row(
+          children: [
+            Container(
+              padding: EdgeInsets.only(
+                left: 15.w,
+                right: 15.w,
+                top: 5.h,
+                bottom: 5.h,
+              ),
+              decoration: appBoxShadow(
+                color: AppColors.primaryElement,
+                radius: 7.w,
+              ),
+              child: const Text11Normal(text: "All"),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 30.w),
+              child: const Text11Normal(
+                text: "Popular",
+                color: AppColors.primaryThreeElementText,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 30.w),
+              child: const Text11Normal(
+                text: "Newest",
+                color: AppColors.primaryThreeElementText,
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class CourseItemGrid extends StatelessWidget {
+  const CourseItemGrid({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: GridView.builder(
+          physics: const ScrollPhysics(),
+          shrinkWrap: true,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 40,
+            mainAxisSpacing: 40,
+          ),
+          itemBuilder: (_, int index) {
+            return appImage();
+          }),
+    );
+  }
 }

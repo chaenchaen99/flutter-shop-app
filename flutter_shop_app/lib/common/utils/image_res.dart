@@ -20,4 +20,5 @@ class ImageRes {
   static const String banner1 = '$_iconBase/Art.png';
   static const String banner2 = '$_iconBase/Image(1).png';
   static const String banner3 = '$_iconBase/Image(2).png';
+  static const String menu = '$_iconBase/menu.png';
 }

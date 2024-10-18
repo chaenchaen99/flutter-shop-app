@@ -33,10 +33,12 @@ class Text24Normal extends StatelessWidget {
 class Text16Normal extends StatelessWidget {
   final String text;
   final Color color;
+  final FontWeight fontWeight;
   const Text16Normal({
     super.key,
     this.text = '',
     this.color = AppColors.primarySecondaryElementText,
+    this.fontWeight = FontWeight.normal,
   });
 
   @override
@@ -48,7 +50,7 @@ class Text16Normal extends StatelessWidget {
         fontFamily: 'MontserratMedium',
         color: color,
         fontSize: 16,
-        fontWeight: FontWeight.normal,
+        fontWeight: fontWeight,
       ),
     );
   }
@@ -57,11 +59,13 @@ class Text16Normal extends StatelessWidget {
 class Text14Normal extends StatelessWidget {
   final String text;
   final Color color;
+  final FontWeight fontWeight;
 
   const Text14Normal({
     super.key,
     this.text = '',
     this.color = AppColors.primaryThreeElementText,
+    this.fontWeight = FontWeight.normal,
   });
 
   @override
@@ -73,7 +77,33 @@ class Text14Normal extends StatelessWidget {
         fontFamily: 'MontserratMedium',
         color: color,
         fontSize: 16,
-        fontWeight: FontWeight.normal,
+        fontWeight: fontWeight,
+      ),
+    );
+  }
+}
+
+class Text11Normal extends StatelessWidget {
+  final String text;
+  final Color color;
+  final FontWeight fontWeight;
+  const Text11Normal({
+    super.key,
+    this.text = '',
+    this.color = AppColors.primaryElement,
+    this.fontWeight = FontWeight.normal,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        fontFamily: 'MontserratMedium',
+        color: color,
+        fontSize: 11.sp,
+        fontWeight: fontWeight,
       ),
     );
   }
